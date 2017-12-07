@@ -2,8 +2,8 @@ FROM arm32v6/alpine:latest
 
 MAINTAINER nVentiveUX
 
-RUN set -x && \
-  apk add --no-cache --update openjdk8-jre unzip wget ffmpeg sox x264-libs libmatroska
+RUN set -x \
+  && apk add --no-cache --update openjdk8-jre unzip wget x264-libs libmatroska ffmpeg;
 
 RUN set -x \
   && mkdir -p /opt/bubbleupnpserver \
