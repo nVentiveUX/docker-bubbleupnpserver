@@ -5,7 +5,7 @@ MAINTAINER nVentiveUX
 COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN set -x \
-  && apk add --no-cache --update openjdk8-jre unzip wget x264-libs libmatroska ffmpeg;
+  && apk add --no-cache --update openjdk8-jre unzip wget x264-libs libmatroska ffmpeg iptables;
 
 RUN set -x \
   && mkdir -p /opt/bubbleupnpserver \
@@ -17,4 +17,3 @@ RUN set -x \
 EXPOSE 58050/tcp 58051/tcp 1900/udp
 
 ENTRYPOINT ["/opt/bubbleupnpserver/launch.sh"]
-
