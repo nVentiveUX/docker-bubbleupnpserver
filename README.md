@@ -13,7 +13,7 @@ $ cd docker-bubbleupnpserver
 $ docker build --rm -t nventiveux/docker-bubbleupnpserver -t nventiveux/docker-bubbleupnpserver:latest .
 ```
 
-Run the service
+Run as a service
 
 ```shell
 $ docker service create \
@@ -22,10 +22,16 @@ $ docker service create \
   --network host \
   --no-resolve-image \
   nventiveux/docker-bubbleupnpserver:latest
+$ docker logs bubbleupnpserver.1.<ID>
 ```
 
-Check
+Run as a regular container
 
 ```shell
-$ docker logs bubbleupnpserver.1.<ID>
+$ docker run -d \
+  --name bubbleupnpserver \
+  --net=host \
+  --restart=always \
+  nventiveux/docker-bubbleupnpserver:latest
+$ docker logs bubbleupnpserver
 ```
