@@ -4,13 +4,13 @@ language: bash
 
 env:
   global:
-    - QEMU_VERSION=2.9.1-1
+    - QEMU_VERSION=2.12.0-1
   matrix:
     - TAG=latest
 
 install:
 - sudo apt-get update
-- sudo apt-get upgrade -Vy
+- sudo apt-get upgrade docker-ce -Vy
 
 before_script:
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
