@@ -4,7 +4,7 @@ language: bash
 
 env:
   global:
-    - QEMU_VERSION=2.12.0-1
+    - QEMU_VERSION=3.0.0
   matrix:
     - TAG=latest
 
