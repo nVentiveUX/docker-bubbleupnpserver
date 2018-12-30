@@ -5,7 +5,7 @@ MAINTAINER nVentiveUX
 COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN set -x \
-  && apk add --no-cache --update openjdk8-jre unzip wget libmatroska ffmpeg iptables lame-dev soxr-dev \
+  && apk add --no-cache --update wget unzip openjdk8-jre-base ffmpeg iptables \
   && rm -rf /var/cache/apk/*;
 
 RUN set -x \
