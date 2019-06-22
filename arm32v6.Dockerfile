@@ -1,4 +1,4 @@
-FROM arm32v6/alpine:3.10
+FROM arm32v6/alpine:latest
 MAINTAINER nVentiveUX
 
 ENV BUBBLE_APP_DIR=/opt/bubbleupnpserver \
@@ -7,10 +7,11 @@ ENV BUBBLE_APP_DIR=/opt/bubbleupnpserver \
 COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN set -eux; \
-  apk add --no-cache --update \
+  apk update && apk add --no-cache --update \
     ca-certificates \
     ffmpeg \
     iptables \
+    nss \
     openjdk8-jre-base \
     sox \
     unzip \

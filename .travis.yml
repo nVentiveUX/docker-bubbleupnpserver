@@ -1,12 +1,15 @@
 sudo: required
 services: docker
 language: bash
+dist: bionic
 
 env:
   global:
-    - QEMU_VERSION=3.1.0-2
+    - QEMU_VERSION=4.0.0-2
+    - DOCKER_IMAGE="nventiveux/docker-bubbleupnpserver"
   matrix:
-    - TAG=latest
+    - ARCH="amd64"
+    - ARCH="arm32v6"
 
 install:
 - sudo apt-get update
@@ -18,12 +21,18 @@ before_script:
 - tar -xzvf qemu-arm-static.tar.gz
 
 script:
-- docker build -t nventiveux/docker-bubbleupnpserver:${TAG} .
+- dockerfile="${ARCH}.Dockerfile"
+- if [[ "${ARCH}" == "amd64" ]]; then
+      docker build -t "${DOCKER_IMAGE}:latest" -t "${DOCKER_IMAGE}:latest_${ARCH}" -f "${dockerfile}" .;
+  else
+      docker build -t "${DOCKER_IMAGE}:latest_${ARCH}" -f "${dockerfile}" .;
+  fi
 - docker images
 
 after_success:
 - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
-- docker push nventiveux/docker-bubbleupnpserver:${TAG}
+- docker push "${DOCKER_IMAGE}"
+- docker logout
 
 branches:
   only:
