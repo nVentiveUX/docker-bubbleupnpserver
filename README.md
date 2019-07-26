@@ -21,7 +21,13 @@ Run as a daemon
 ```shell
 $ {
 ARCH=$(dpkg --print-architecture)
+
 if [[ "${ARCH}" == "armhf" ]]; then
+  printf "Clean potential old instances...\\n";
+  docker stop bubbleupnpserver &>/dev/null;
+  docker rm bubbleupnpserver &>/dev/null;
+  docker rmi nventiveux/docker-bubbleupnpserver:latest_arm32v6;
+
   printf "Starting up bubbleupnpserver container for %s...\\n" ${ARCH};
   docker run -d \
     --name bubbleupnpserver \
@@ -29,6 +35,11 @@ if [[ "${ARCH}" == "armhf" ]]; then
     --restart=always \
     nventiveux/docker-bubbleupnpserver:latest_arm32v6;
 else
+  printf "Clean potential old instances...\\n";
+  docker stop bubbleupnpserver &>/dev/null;
+  docker rm bubbleupnpserver &>/dev/null;
+  docker rmi nventiveux/docker-bubbleupnpserver:latest_amd64;
+
   printf "Starting up bubbleupnpserver container for %s...\\n" ${ARCH};
   docker run -d \
     --name bubbleupnpserver \
