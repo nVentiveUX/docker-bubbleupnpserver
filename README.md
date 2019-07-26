@@ -26,7 +26,7 @@ if [[ "${ARCH}" == "armhf" ]]; then
   printf "Clean potential old instances...\\n";
   docker stop bubbleupnpserver &>/dev/null;
   docker rm bubbleupnpserver &>/dev/null;
-  docker rmi nventiveux/docker-bubbleupnpserver:latest_arm32v6;
+  docker rmi nventiveux/docker-bubbleupnpserver:latest_arm32v6 &>/dev/null;
 
   printf "Starting up bubbleupnpserver container for %s...\\n" ${ARCH};
   docker run -d \
