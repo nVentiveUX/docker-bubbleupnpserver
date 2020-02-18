@@ -1,5 +1,5 @@
 # docker-bubbleupnpserver
-[![Build Status](https://travis-ci.org/nVentiveUX/docker-bubbleupnpserver.svg?branch=master)](https://travis-ci.org/nVentiveUX/docker-bubbleupnpserver) [![Docker Pulls](https://img.shields.io/docker/pulls/nventiveux/docker-bubbleupnpserver)](https://hub.docker.com/r/nventiveux/docker-bubbleupnpserver)
+[![Docker Image CI](https://github.com/nVentiveUX/docker-bubbleupnpserver/workflows/Docker%20Image%20CI/badge.svg)](https://hub.docker.com/repository/docker/nventiveux/docker-bubbleupnpserver) [![Docker Pulls](https://img.shields.io/docker/pulls/nventiveux/docker-bubbleupnpserver)](https://hub.docker.com/r/nventiveux/docker-bubbleupnpserver)
 
 Docker image for BubbleUPnP Server installation.
 

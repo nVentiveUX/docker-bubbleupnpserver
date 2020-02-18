@@ -1,11 +1,13 @@
+# hadolint ignore=DL3007
 FROM arm32v6/alpine:latest
-MAINTAINER nVentiveUX
+LABEL maintainer="nVentiveUX"
 
 ENV BUBBLE_APP_DIR=/opt/bubbleupnpserver \
     BUBBLE_USER=bubble
 
 COPY qemu-arm-static /usr/bin/qemu-arm-static
 
+# hadolint ignore=DL3018
 RUN set -eux; \
   apk update && apk add --no-cache --update \
     ca-certificates \
