@@ -34,25 +34,19 @@ jobs:
         docker run --rm --privileged multiarch/qemu-user-static:register --reset
         curl -SLO https://github.com/multiarch/qemu-user-static/releases/download/v${QEMU_VERSION}/qemu-arm-static.tar.gz
         tar -xzvf qemu-arm-static.tar.gz
-    
+
     - name: Hadolint
       uses: brpaz/hadolint-action@v1.0.2
       with:
-        dockerfile: ${{matrix.ARCH}}.Dockerfile
+        dockerfile: ${{ matrix.ARCH }}.Dockerfile
 
     - name: Build
       run: |
-        dockerfile="${{matrix.ARCH}}.Dockerfile"
-        if [[ "${{matrix.ARCH}}" == "amd64" ]]; then
-          docker build -t "${DOCKER_IMAGE}:latest" -t "${DOCKER_IMAGE}:latest_${{matrix.ARCH}}" -f "${dockerfile}" .;
-        else
-          docker build -t "${DOCKER_IMAGE}:latest_${{matrix.ARCH}}" -f "${dockerfile}" .;
-        fi
+        docker build -t "${DOCKER_IMAGE}:latest_${{ matrix.ARCH }}" -f "${{ matrix.ARCH }}.Dockerfile" .
         docker images
 
     - name: Push
       run: |
-        docker login -u "${{secrets.DOCKER_USERNAME}}" -p "${{secrets.DOCKER_PASSWORD}}"
+        docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
         docker push "${DOCKER_IMAGE}"
         docker logout
-

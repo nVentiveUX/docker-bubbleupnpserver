@@ -5,7 +5,7 @@ Docker image for BubbleUPnP Server installation.
 
 ## Quick start
 
-Run as a service
+Run as a service (RPi example)
 
 ```shell
 $ docker service create \
@@ -13,10 +13,10 @@ $ docker service create \
   --replicas 1 \
   --network host \
   --no-resolve-image \
-  nventiveux/docker-bubbleupnpserver:latest
+  nventiveux/docker-bubbleupnpserver:latest_arm32v6
 ```
 
-Run as a daemon
+Run as a daemon (can be automated)
 
 ```shell
 $ {

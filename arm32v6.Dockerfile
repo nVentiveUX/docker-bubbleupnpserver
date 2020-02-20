@@ -36,4 +36,3 @@ USER ${BUBBLE_USER}
 EXPOSE 58050/tcp 58051/tcp 1900/udp
 
 CMD ["sh", "-c", "${BUBBLE_APP_DIR}/launch.sh"]
-
