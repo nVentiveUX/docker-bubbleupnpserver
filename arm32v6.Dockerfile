@@ -35,6 +35,6 @@ USER ${BUBBLE_USER}
 
 EXPOSE 58050/tcp 58051/tcp 1900/udp
 
-HEALTHCHECK CMD wget -q --method=HEAD http://localhost:58050 || exit 1
+HEALTHCHECK CMD wget -q --method=HEAD http://127.0.0.1:58050 || exit 1
 
 CMD ["sh", "-c", "${BUBBLE_APP_DIR}/launch.sh"]
