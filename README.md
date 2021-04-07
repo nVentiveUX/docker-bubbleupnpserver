@@ -7,32 +7,16 @@ Docker image for BubbleUPnP Server installation.
 
 ```shell
 $ {
-ARCH=$(dpkg --print-architecture)
+printf "Clean potential old instances...\\n";
+docker stop bubbleupnpserver &>/dev/null;
+docker rm bubbleupnpserver &>/dev/null;
+docker rmi nventiveux/docker-bubbleupnpserver &>/dev/null;
 
-if [[ "${ARCH}" == "armhf" ]]; then
-  printf "Clean potential old instances...\\n";
-  docker stop bubbleupnpserver &>/dev/null;
-  docker rm bubbleupnpserver &>/dev/null;
-  docker rmi nventiveux/docker-bubbleupnpserver:latest_arm32v6 &>/dev/null;
-
-  printf "Starting up bubbleupnpserver container for %s...\\n" ${ARCH};
-  docker run -d \
-    --name bubbleupnpserver \
-    --net=host \
-    --restart=always \
-    nventiveux/docker-bubbleupnpserver:latest_arm32v6;
-else
-  printf "Clean potential old instances...\\n";
-  docker stop bubbleupnpserver &>/dev/null;
-  docker rm bubbleupnpserver &>/dev/null;
-  docker rmi nventiveux/docker-bubbleupnpserver:latest_amd64;
-
-  printf "Starting up bubbleupnpserver container for %s...\\n" ${ARCH};
-  docker run -d \
-    --name bubbleupnpserver \
-    --net=host \
-    --restart=always \
-    nventiveux/docker-bubbleupnpserver:latest_amd64;
-fi
+printf "Starting up bubbleupnpserver container...\\n";
+docker run -d \
+  --name bubbleupnpserver \
+  --net=host \
+  --restart=always \
+  nventiveux/docker-bubbleupnpserver;
 }
 ```
