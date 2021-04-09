@@ -1,5 +1,6 @@
 # hadolint ignore=DL3007
-FROM alpine:latest
+FROM bellsoft/liberica-openjdk-alpine:latest
+
 LABEL maintainer="nVentiveUX"
 
 ENV BUBBLE_APP_DIR=/opt/bubbleupnpserver \
@@ -12,7 +13,6 @@ RUN set -eux; \
     ffmpeg \
     iptables \
     nss \
-    openjdk8-jre-base \
     sox \
     unzip \
     wget;
