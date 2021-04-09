@@ -17,6 +17,6 @@ docker run -d \
   --name bubbleupnpserver \
   --net=host \
   --restart=always \
-  nventiveux/docker-bubbleupnpserver -disableUPnPPortForwarding -nologfile;
+  nventiveux/docker-bubbleupnpserver -nologfile;
 }
 ```
