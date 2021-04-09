@@ -31,8 +31,10 @@ RUN set -eux; \
 
 USER ${BUBBLE_USER}
 
+WORKDIR ${BUBBLE_APP_DIR}
+
 EXPOSE 58050/tcp 58051/tcp 1900/udp
 
 HEALTHCHECK CMD wget -q --method=HEAD http://127.0.0.1:58050 || exit 1
 
-CMD ["sh", "-c", "${BUBBLE_APP_DIR}/launch.sh"]
+ENTRYPOINT ["./launch.sh"]
