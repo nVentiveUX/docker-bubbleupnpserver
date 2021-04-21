@@ -1,5 +1,8 @@
 # docker-bubbleupnpserver
-[![Docker Image CI](https://github.com/nVentiveUX/docker-bubbleupnpserver/workflows/Docker%20Image%20CI/badge.svg)](https://hub.docker.com/repository/docker/nventiveux/docker-bubbleupnpserver) [![Docker Pulls](https://img.shields.io/docker/pulls/nventiveux/docker-bubbleupnpserver)](https://hub.docker.com/r/nventiveux/docker-bubbleupnpserver)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nVentiveUX/docker-bubbleupnpserver/Docker%20Image%20CI?style=for-the-badge)](https://github.com/nVentiveUX/docker-bubbleupnpserver/actions/workflows/dockerimage.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nventiveux/docker-bubbleupnpserver?style=for-the-badge)](https://hub.docker.com/r/nventiveux/docker-bubbleupnpserver)
+
+![Logo from BubbleUPnP](https://www.bubblesoftapps.com/bubbleupnpserver2/bubbleupnp_web_logo.png)
 
 Docker image for [BubbleUPnP Server](https://bubblesoftapps.com/) installation.
 
