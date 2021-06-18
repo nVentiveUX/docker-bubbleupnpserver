@@ -1,10 +1,15 @@
 # hadolint ignore=DL3007
-FROM bellsoft/liberica-openjdk-alpine:latest
+FROM alpine:latest
 
 LABEL maintainer="nVentiveUX"
 
+# hadolint ignore=DL3022
+COPY --from=bellsoft/liberica-openjre-alpine:latest /usr/lib/jvm/jre-*/ /opt/java/jre/
+
 ENV BUBBLE_APP_DIR=/opt/bubbleupnpserver \
-    BUBBLE_USER=bubble
+    BUBBLE_USER=bubble \
+    JAVA_HOME=/opt/java/jre \
+    PATH="/opt/java/jre/bin:$PATH"
 
 # hadolint ignore=DL3018
 RUN set -eux; \
@@ -27,6 +32,7 @@ RUN set -eux; \
   unzip ${BUBBLE_APP_DIR}/bubbleupnpserver.zip -d ${BUBBLE_APP_DIR}; \
   chown -R ${BUBBLE_USER}:${BUBBLE_USER} ${BUBBLE_APP_DIR}; \
   chmod +x ${BUBBLE_APP_DIR}/launch.sh; \
+  /opt/java/jre/bin/java -version; \
   rm ${BUBBLE_APP_DIR}/bubbleupnpserver.zip;
 
 USER ${BUBBLE_USER}
