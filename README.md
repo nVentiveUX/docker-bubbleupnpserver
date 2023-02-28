@@ -1,5 +1,5 @@
 # docker-bubbleupnpserver
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nVentiveUX/docker-bubbleupnpserver/Docker%20Image%20CI?style=for-the-badge)](https://github.com/nVentiveUX/docker-bubbleupnpserver/actions/workflows/dockerimage.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nVentiveUX/docker-bubbleupnpserver/dockerimage.yml?style=for-the-badge)](https://github.com/nVentiveUX/docker-bubbleupnpserver/actions/workflows/dockerimage.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nventiveux/docker-bubbleupnpserver?style=for-the-badge)](https://hub.docker.com/r/nventiveux/docker-bubbleupnpserver)
 
 ![Logo from BubbleUPnP](https://www.bubblesoftapps.com/bubbleupnpserver2/bubbleupnp_web_logo.png)
